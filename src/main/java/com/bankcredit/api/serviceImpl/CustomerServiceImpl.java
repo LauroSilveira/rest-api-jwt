@@ -40,7 +40,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public void putCustomer(Customer customer) throws CustomerException  {
 		logger.info("Actualización del cliente: {}", customer.getName());
-		Customer customerBDD = repository.findById(customer.getId())
+		Customer customerBDD = repository.findById(customer.getIdCustomer())
 					.orElseThrow(() -> new CustomerException("No ha sido posible encontrar el cliente"));
 		
 		repository.saveAndFlush(buildCustomer(customerBDD, customer));
@@ -53,7 +53,7 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 	
 	private Customer buildCustomer(Customer customerBDD, Customer customerRequest) {
-		customerBDD.setDocument(customerRequest.getDocument());
+		customerBDD.setDocumentNumber(customerRequest.getDocumentNumber());
 		customerBDD.setSurname(customerRequest.getSurname());
 		customerBDD.setName(customerRequest.getName());
 		customerBDD.setAccounts(customerRequest.getAccounts());
