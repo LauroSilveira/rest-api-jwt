@@ -2,11 +2,11 @@ package com.bankcredit.api.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Accounts implements Serializable {
@@ -16,10 +16,11 @@ public class Accounts implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long accountId;
-	@Column(name = "accountNumber")
 	private String accountNumber;
-	@Column(name = "amount")
 	private String amount;
+	
+	@ManyToOne
+	private Customer customer;
 	
 	public Accounts() {
 		
@@ -47,6 +48,14 @@ public class Accounts implements Serializable {
 
 	public void setAccountId(Long accountId) {
 		this.accountId = accountId;
+	}
+	
+	public Customer getCustomer() {
+		return customer;
+	}
+	
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 }

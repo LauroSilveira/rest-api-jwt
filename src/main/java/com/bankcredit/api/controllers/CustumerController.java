@@ -21,7 +21,7 @@ import com.bankcredit.api.model.Customer;
 import com.bankcredit.api.service.CustomerService;
 
 @RestController
-@RequestMapping("/getCustomer")
+@RequestMapping("/customer")
 public class CustumerController {
 	
 	

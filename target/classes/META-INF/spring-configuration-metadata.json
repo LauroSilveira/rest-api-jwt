@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "",
+      "type": "com.bankcredit.api.ApiApplication",
+      "sourceType": "com.bankcredit.api.ApiApplication"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

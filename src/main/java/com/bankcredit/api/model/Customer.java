@@ -1,10 +1,10 @@
 package com.bankcredit.api.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,15 +18,12 @@ public class Customer implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCustomer;
-	@Column(name = "name")
 	private String name;
-	@Column(name = "surname")
 	private String surname;
-	@Column(name = "documentNumber")
 	private String documentNumber;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<Accounts> accounts;
+	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+	private List<Accounts> accounts = new ArrayList<>();
 	
 	public Customer() {
 		
