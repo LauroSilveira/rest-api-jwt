@@ -1,2 +1,2 @@
-INSERT INTO customer (id_customer, name, surname, document_number) VALUES (1, 'Lauro', 'Correia', '05734333X')
-INSERT INTO accounts (account_id, account_number, amount) VALUES (1, 'PT50000201231234567890154','10000,00')
+INSERT INTO CUSTOMER (customer_id, name, surname, document_number) VALUES (1, 1, 'Lauro', 'Correia', '05734333X')
+INSERT INTO ACCOUNT (id, account_number, amount, customer_id) VALUES (1, 'PT50000201231234567890154','10000,00', 1)

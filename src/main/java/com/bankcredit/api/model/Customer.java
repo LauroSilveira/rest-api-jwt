@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,18 +14,23 @@ import javax.persistence.OneToMany;
 public class Customer implements Serializable {
 	
 	private static final long serialVersionUID = -5442415634603716546L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idCustomer;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String name;
 	private String surname;
 	private String documentNumber;
-	
-	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-	private List<Accounts> accounts = new ArrayList<>();
+	@OneToMany(mappedBy = "customer")
+	private List<Account> accounts = new ArrayList<>();
 	
 	public Customer() {
-		
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -37,6 +41,14 @@ public class Customer implements Serializable {
 		this.name = name;
 	}
 
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
 	public String getDocumentNumber() {
 		return documentNumber;
 	}
@@ -45,27 +57,11 @@ public class Customer implements Serializable {
 		this.documentNumber = documentNumber;
 	}
 
-	public List<Accounts> getAccounts() {
+	public List<Account> getAccounts() {
 		return accounts;
 	}
 
-	public void setAccounts(List<Accounts> accounts) {
+	public void setAccounts(List<Account> accounts) {
 		this.accounts = accounts;
-	}
-
-	public Long getIdCustomer() {
-		return idCustomer;
-	}
-
-	public void setIdCustomer(Long idCustomer) {
-		this.idCustomer = idCustomer;
-	}
-
-	public String getSurname() {
-		return surname;
-	}
-
-	public void setSurname(String surname) {
-		this.surname = surname;
 	}
 }

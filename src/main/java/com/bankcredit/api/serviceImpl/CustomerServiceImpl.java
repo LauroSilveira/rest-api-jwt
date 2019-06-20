@@ -40,7 +40,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public void putCustomer(Customer customer) throws CustomerException  {
 		logger.info("Actualización del cliente: {}", customer.getName());
-		Customer customerBDD = repository.findById(customer.getIdCustomer())
+		Customer customerBDD = repository.findById(customer.getId())
 					.orElseThrow(() -> new CustomerException("No ha sido posible encontrar el cliente"));
 		
 		repository.saveAndFlush(buildCustomer(customerBDD, customer));
