@@ -71,6 +71,4 @@ public class Customer implements Serializable {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	
-
 }
