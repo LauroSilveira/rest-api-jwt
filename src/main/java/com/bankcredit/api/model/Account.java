@@ -17,8 +17,7 @@ public class Account implements Serializable {
 	private Long id;
 	private String accountNumber;
 	private BigDecimal amount;
-	@ManyToOne
-	private Customer customer;
+
 	
 	public Account() {
 	}
@@ -45,13 +44,5 @@ public class Account implements Serializable {
 
 	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
-	}
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
 	}
 }
